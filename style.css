@@ -1,0 +1,220 @@
+body {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+/* Auth Container */
+.auth-container {
+  max-width: 480px;
+  /* Reduced vertical margin for better centering on smaller screens, while keeping horizontal centering */
+  margin: 2.5rem auto; 
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+/* Auth Form Title */
+.auth-form-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+/* Auth Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* This provides the vertical space between input groups */
+}
+
+/* Form Group */
+.auth-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  /* Added margin-bottom to ensure separation between groups */
+  margin-bottom: 1rem; 
+}
+
+/* Form Labels */
+.auth-form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Form Inputs and Select */
+.auth-form-group input,
+.auth-form-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* THIS IS THE CRITICAL LINE to force a new line and full width */
+  display: block !important; 
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
+  color: #111827;
+  transition: all 0.2s;
+}
+
+.auth-form-group input:focus,
+.auth-form-group select:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #3b82f6;
+  border-color: #3b82f6;
+}
+
+/* Button */
+.auth-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #2563eb;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.auth-button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Auth Link */
+.auth-link {
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.auth-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Error and success messages */
+.error {
+    color: #dc2626; /* text-red-600 */
+    font-size: 0.875rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.success {
+    color: #16a34a; /* text-green-600 */
+    font-size: 0.875rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* --- Original custom styles from the first code block --- */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #3b82f6;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.nav-link.active {
+  color: #1d4ed8;
+  border-bottom: 2px solid #1d4ed8;
+}
+.rating-stars {
+  color: #fbbf24;
+}
+.loader-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.loader-dots span {
+  animation-name: bounce;
+  animation-duration: 1.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* style.css */
+
+/* Add this to your style.css for a loader */
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #3b82f6;
+    color: #3b82f6;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+.dot-flashing::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #3b82f6;
+    color: #3b82f6;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #3b82f6;
+    color: #3b82f6;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+    0% {
+        background-color: #3b82f6;
+    }
+    50%,
+    100% {
+        background-color: #b3cde3;
+    }
+}
